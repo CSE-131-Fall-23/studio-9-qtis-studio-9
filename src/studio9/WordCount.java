@@ -29,9 +29,21 @@ public class WordCount {
 	 *         associated with the number of occurrences of the word
 	 */
 	public static Map<String, Integer> countWords(List<String> words) {
-
-		// FIXME
-		throw new NotYetImplementedException();
+		Map<String, Integer> wordCount = new HashMap<>();
+		String current;
+		for(int k = 0; k<words.size(); k++)
+		{
+			current = words.get(k);
+			if(wordCount.containsKey(current))
+			{
+				wordCount.replace(current, wordCount.get(current)+1);
+			}
+			else
+			{
+				wordCount.put(current, 1);
+			}
+		}
+		return wordCount;
 
 	}
 	
@@ -48,5 +60,9 @@ public class WordCount {
 		
 		//TODO: Write code that will iterate over the words map
 		//to verify its contents
+		for(String word : words.keySet())
+		{
+			System.out.println(word + ": " + words.get(word));
+		}
 	}
 }
